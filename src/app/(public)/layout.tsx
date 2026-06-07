@@ -5,6 +5,7 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { type Locale, locales, getDir, isRtl } from "@/i18n/config";
 import { site } from "@/lib/site";
@@ -100,7 +101,10 @@ export default async function PublicRootLayout({
         />
         {arabicFont !== null && <link href={arabicFont} rel="stylesheet" />}
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
