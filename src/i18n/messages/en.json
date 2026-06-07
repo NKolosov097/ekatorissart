@@ -1,0 +1,130 @@
+{
+  "site": {
+    "tagline": "Original oil paintings — landscape, still life, interior",
+    "description": "Original oil paintings by Ekatorissart. Landscapes, still lifes, and interiors painted from life. Each work is one-of-a-kind and ships worldwide."
+  },
+  "nav": {
+    "shop": "Shop",
+    "originals": "Originals",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "Cart"
+  },
+  "home": {
+    "eyebrow": "Original works · Studio of {artist}",
+    "headline_line1": "Paintings of quiet",
+    "headline_line2": "light and place.",
+    "intro": "A small studio practice — landscapes, still lifes, and interiors, painted from life in oils. Each piece is one-of-a-kind and ships worldwide.",
+    "shop_button": "Shop Originals",
+    "about_button": "About the artist",
+    "featured": "Featured",
+    "sold_badge": "Sold",
+    "selected_eyebrow": "Selected works",
+    "selected_title": "Recent paintings",
+    "view_all": "View all",
+    "view_all_originals": "View all originals",
+    "values": {
+      "from_life_title": "Painted from life",
+      "from_life_body": "Each work is built in front of the subject — outdoors for landscape, under steady studio light for still life.",
+      "archival_title": "Archival materials",
+      "archival_body": "Professional oils on linen or fine canvas, sized and primed by hand. Built to last generations.",
+      "shipping_title": "Worldwide shipping",
+      "shipping_body": "Carefully crated and insured. Standard shipping included on all original works."
+    }
+  },
+  "shop": {
+    "eyebrow": "Shop",
+    "title": "Paintings & prints",
+    "intro": "One-of-a-kind originals alongside fine-art prints, signed and ready to ship from the studio. Sizes are listed in centimeters with inches alongside on the detail page.",
+    "archive": "Archive · Sold works",
+    "empty": "No works available at the moment. Please check back soon.",
+    "meta_title": "Shop — Original Paintings & Prints",
+    "meta_description": "Browse original oil paintings and fine-art prints by {artist}. Landscapes, still lifes, and interiors — ready to ship worldwide.",
+    "filter_type_label": "Type",
+    "filter_status_label": "Status",
+    "filter_all": "All",
+    "filter_originals": "Originals",
+    "filter_prints": "Prints",
+    "filter_available": "Available",
+    "filter_sold": "Sold"
+  },
+  "artwork": {
+    "breadcrumb_home": "Home",
+    "breadcrumb_shop": "Shop",
+    "breadcrumb_originals": "Originals",
+    "eyebrow": "Original · {year}",
+    "labels": {
+      "medium": "Medium",
+      "size": "Size",
+      "frame": "Frame",
+      "status": "Status"
+    },
+    "framed": "Framed",
+    "unframed": "Unframed",
+    "status": {
+      "available": "Available",
+      "sold": "Sold"
+    },
+    "shipping_included": "Shipping included",
+    "from_studio": "From the studio",
+    "you_may_also_like": "You may also like",
+    "add_to_cart": "Add to cart",
+    "view_cart": "View cart",
+    "sold_button": "Sold",
+    "on_surface": "{medium} on {surface}",
+    "view_full_resolution": "View full resolution",
+    "close_viewer": "Close",
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out"
+  },
+  "cart": {
+    "eyebrow": "Checkout",
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "browse": "Browse originals",
+    "summary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shipping_included": "Included",
+    "total": "Total",
+    "proceed": "Proceed to checkout",
+    "loading": "Loading…",
+    "secure": "Secure payment via Stripe. Worldwide shipping included.",
+    "remove": "Remove",
+    "original_painting": "Original painting"
+  },
+  "about": {
+    "eyebrow": "About",
+    "p1": "My work begins outside, or in front of an object lit by the window. I paint from life because nothing else gives the same charge of light, the same colour relationships, the same accidents to chase.",
+    "p2": "I work mostly in oils on linen or fine canvas, in series rather than one-offs. Landscapes done en plein air, still lifes built up over a few days under steady studio light, interiors that come back to the same room at different hours.",
+    "p3": "Each finished piece is signed and varnished before it leaves the studio. I ship worldwide, carefully crated and insured.",
+    "p4_lead": "For studio visits, commissions, or to be added to the next-release mailing list, please write at",
+    "p4_trail": "."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Write to the studio",
+    "p1": "For commissions, studio visits, press, or any question about a piece you've seen on the site —",
+    "p2": "I read every message and reply personally, usually within two working days.",
+    "follow_lead": "You can also follow along on",
+    "follow_trail": ", where new work appears first."
+  },
+  "notFound": {
+    "title": "Nothing here.",
+    "body": "The page you were looking for has moved, sold out, or never existed.",
+    "back": "Back to the studio"
+  },
+  "footer": {
+    "tagline": "Original oil paintings, painted from life and shipped worldwide from the artist's studio.",
+    "explore": "Explore",
+    "studio": "Studio",
+    "rights": "© {year} {artist}. All rights reserved.",
+    "made": "Made with care in the studio."
+  },
+  "checkout": {
+    "success_eyebrow": "Order received",
+    "success_title": "Thank you.",
+    "success_body": "Your order has been received and a confirmation will arrive by email shortly. The painting will be carefully crated and shipped from the studio within a few business days.",
+    "continue": "Continue browsing"
+  }
+}

@@ -1,0 +1,287 @@
+// Demo artwork data. Lets the app run with zero database setup.
+// When you wire Prisma + Postgres, replace reads in pages with db queries
+// and keep this shape identical (see src/lib/types.ts).
+
+import type { Artwork } from "@/lib/types";
+
+export const artworks: Artwork[] = [
+  {
+    id: "a1",
+    slug: "morning-light-on-the-meadow",
+    title: "Morning Light on the Meadow",
+    year: 2025,
+    medium: "OIL",
+    surface: "Linen",
+    widthCm: 60,
+    heightCm: 80,
+    priceCents: 240000,
+    currency: "USD",
+    status: "SOLD",
+    kind: "ORIGINAL",
+    description:
+      "An impressionistic study of dew lit by the first sun of late spring.",
+    story:
+      "Painted en plein air over three consecutive mornings near the Volga floodplains. The palette leans on raw umber, naples yellow and a whisper of ultramarine to keep the shadows alive.",
+    tags: ["landscape", "impressionism", "plein-air", "spring"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1549289524-06cf8837ace5?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: true,
+    publishedAt: "2025-04-12",
+  },
+  {
+    id: "a2",
+    slug: "still-life-with-pomegranates",
+    title: "Still Life with Pomegranates",
+    year: 2024,
+    medium: "OIL",
+    surface: "Canvas",
+    widthCm: 40,
+    heightCm: 50,
+    priceCents: 145000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "A quiet still life in the manner of the old Spanish bodegones.",
+    story:
+      "Built up in transparent glazes over an ochre imprimatura. The pomegranates were repainted four times before they finally felt ripe.",
+    tags: ["still-life", "classical", "fruit"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=1600&q=80",
+    images: [],
+    framed: true,
+    featured: true,
+    publishedAt: "2024-11-02",
+  },
+  {
+    id: "a3",
+    slug: "harbor-at-dusk",
+    title: "Harbor at Dusk",
+    year: 2024,
+    medium: "OIL",
+    surface: "Linen",
+    widthCm: 90,
+    heightCm: 60,
+    priceCents: 320000,
+    currency: "USD",
+    status: "SOLD",
+    kind: "ORIGINAL",
+    description: "Working boats settling into the cooler hours.",
+    story:
+      "Started from a small graphite study made in Burano. The lavender of the sky was mixed wet-in-wet from cobalt violet and a touch of cadmium red light.",
+    tags: ["seascape", "harbor", "evening"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2024-09-18",
+  },
+  {
+    id: "a4",
+    slug: "wildflowers-in-a-blue-jug",
+    title: "Wildflowers in a Blue Jug",
+    year: 2025,
+    medium: "OIL",
+    surface: "Canvas",
+    widthCm: 35,
+    heightCm: 45,
+    priceCents: 98000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "A loose arrangement of summer field flowers in a glazed jug.",
+    story:
+      "The jug belongs to my grandmother and has appeared in a dozen of my paintings. The flowers were picked on a single walk and painted within four hours before they wilted.",
+    tags: ["still-life", "florals", "summer"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: true,
+    publishedAt: "2025-06-30",
+  },
+  {
+    id: "a5",
+    slug: "river-bend-in-october",
+    title: "River Bend in October",
+    year: 2024,
+    medium: "OIL",
+    surface: "Linen",
+    widthCm: 70,
+    heightCm: 50,
+    priceCents: 180000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "Birch and pine reflected in still water at the height of fall.",
+    story:
+      "Painted from a series of studies made over a weekend retreat. The yellows are mostly cadmium light, broken with a cooler nickel-titanate yellow to keep them from going sour.",
+    tags: ["landscape", "autumn", "river"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1507371341162-763b62693c41?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2024-10-22",
+  },
+  {
+    id: "a6",
+    slug: "interior-with-open-window",
+    title: "Interior with Open Window",
+    year: 2023,
+    medium: "OIL",
+    surface: "Canvas",
+    widthCm: 50,
+    heightCm: 70,
+    priceCents: 210000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "Late afternoon light pouring across a quiet studio interior.",
+    story:
+      "A meditation on Hammershoi and Vuillard. The challenge was to keep the white wall alive without resorting to grey.",
+    tags: ["interior", "light", "studio"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1600&q=80",
+    images: [],
+    framed: true,
+    featured: false,
+    publishedAt: "2023-12-04",
+  },
+  {
+    id: "a7",
+    slug: "two-pears-on-a-marble-shelf",
+    title: "Two Pears on a Marble Shelf",
+    year: 2025,
+    medium: "OIL",
+    surface: "Panel",
+    widthCm: 25,
+    heightCm: 20,
+    priceCents: 64000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "A small intimate study, painted alla prima in one sitting.",
+    story:
+      "These small panels are how I keep my eye sharp between larger commissions. Painted in roughly four hours under cool north light.",
+    tags: ["still-life", "small-works", "fruit"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2025-02-09",
+  },
+  {
+    id: "a8",
+    slug: "stormlight-over-the-steppe",
+    title: "Stormlight over the Steppe",
+    year: 2024,
+    medium: "OIL",
+    surface: "Linen",
+    widthCm: 120,
+    heightCm: 80,
+    priceCents: 540000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "A monumental landscape capturing the moment before the rain.",
+    story:
+      "The largest piece in my 2024 cycle. Worked on for nearly six weeks, with the sky alone repainted three times to get the right charge of light.",
+    tags: ["landscape", "large-works", "storm"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: true,
+    publishedAt: "2024-08-01",
+  },
+  {
+    id: "a9",
+    slug: "lemons-on-white-cloth",
+    title: "Lemons on White Cloth",
+    year: 2025,
+    medium: "OIL",
+    surface: "Canvas",
+    widthCm: 30,
+    heightCm: 40,
+    priceCents: 78000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "ORIGINAL",
+    description: "Three lemons resting on a worn linen cloth.",
+    story:
+      "An exercise in restrained color — most of the painting lives between titanium white, lemon yellow and yellow ochre, with a thread of green going through the shadows.",
+    tags: ["still-life", "small-works", "fruit"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2025-05-18",
+  },
+  {
+    id: "p1",
+    slug: "print-morning-light-meadow",
+    title: "Morning Light on the Meadow — Giclée Print",
+    year: 2025,
+    medium: "MIXED",
+    surface: "Archival cotton paper",
+    widthCm: 30,
+    heightCm: 40,
+    priceCents: 12000,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "PRINT",
+    description:
+      "Limited-edition giclée print of the original spring meadow study, signed and numbered.",
+    story:
+      "Printed on Hahnemühle Photo Rag 308gsm with pigment inks. Edition of 50, each signed, numbered, and shipped flat in a protective sleeve.",
+    tags: ["print", "giclée", "landscape", "edition"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1549289524-06cf8837ace5?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2025-05-01",
+  },
+  {
+    id: "p2",
+    slug: "print-still-life-pomegranates",
+    title: "Still Life with Pomegranates — Open-Edition Print",
+    year: 2024,
+    medium: "MIXED",
+    surface: "Archival cotton paper",
+    widthCm: 24,
+    heightCm: 30,
+    priceCents: 8500,
+    currency: "USD",
+    status: "AVAILABLE",
+    kind: "PRINT",
+    description:
+      "Open-edition fine-art print of the pomegranate still life. Studio-signed on the verso.",
+    story:
+      "An accessible way to live with the work. Printed on demand on archival paper, signed at the back by the artist before shipping.",
+    tags: ["print", "still-life", "open-edition"],
+    primaryImage:
+      "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=1600&q=80",
+    images: [],
+    framed: false,
+    featured: false,
+    publishedAt: "2024-12-15",
+  },
+];
+
+export function getArtworkBySlug(slug: string): Artwork | undefined {
+  return artworks.find((a) => a.slug === slug);
+}
+
+export function getFeaturedArtworks(): Artwork[] {
+  return artworks.filter((a) => a.featured);
+}
+
+export function getAvailableArtworks(): Artwork[] {
+  return artworks.filter((a) => a.status !== "SOLD");
+}
