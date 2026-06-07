@@ -8,6 +8,7 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { type Locale, locales, getDir, isRtl } from "@/i18n/config";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 async function localeFromHeaders(): Promise<Locale> {
@@ -100,7 +101,10 @@ export default async function PublicRootLayout({
         />
         {arabicFont !== null && <link href={arabicFont} rel="stylesheet" />}
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
