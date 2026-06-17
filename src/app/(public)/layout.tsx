@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { type Locale, locales, getDir, isRtl } from "@/i18n/config";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 async function localeFromHeaders(): Promise<Locale> {
