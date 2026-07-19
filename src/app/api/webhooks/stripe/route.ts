@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { eq, inArray } from "drizzle-orm";
 import { getStripe } from "@/lib/stripe";
+import { sendOrderNotification } from "@/lib/email";
 import { getDb, isDatabaseConfigured, schema } from "@/db";
 
 export const runtime = "nodejs";
@@ -150,6 +151,19 @@ async function handleCheckoutCompleted(
   console.log(
     `[stripe webhook] order ${order.id} created, marked ${artworks.length} artwork(s) SOLD`,
   );
+
+  // Notify the owner. Runs only on the insert-winning delivery, so Stripe
+  // retries can't produce duplicate emails; sendOrderNotification never throws.
+  await sendOrderNotification({
+    orderId: order.id,
+    customerEmail: email,
+    items: artworks.map((a) => ({ title: a.title, unitCents: a.priceCents })),
+    subtotalCents,
+    shippingCents,
+    totalCents,
+    currency,
+    shipping,
+  });
 }
 
 export async function POST(req: Request) {

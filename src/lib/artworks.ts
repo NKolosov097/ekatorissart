@@ -4,7 +4,7 @@
 // local Postgres), we degrade to sample data and log a warning instead of
 // crashing the request.
 
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { getDb, isDatabaseConfigured, schema } from "@/db";
 import { artworks as sampleArtworks } from "@/data/artworks";
 import type { Artwork } from "@/lib/types";
@@ -49,15 +49,26 @@ function warnFallback(operation: string, error: unknown): void {
   }
 }
 
+function sortSampleByLatest(list: Artwork[]): Artwork[] {
+  return [...list].sort((a, b) => {
+    const aDate = a.publishedAt ? Date.parse(a.publishedAt) : 0;
+    const bDate = b.publishedAt ? Date.parse(b.publishedAt) : 0;
+    return bDate - aDate;
+  });
+}
+
 export async function listArtworks(): Promise<Artwork[]> {
-  if (!isDatabaseConfigured()) return sampleArtworks;
+  if (!isDatabaseConfigured()) return sortSampleByLatest(sampleArtworks);
   try {
     const db = getDb();
-    const rows = await db.select().from(schema.artworks);
+    const rows = await db
+      .select()
+      .from(schema.artworks)
+      .orderBy(desc(schema.artworks.createdAt));
     return rows.map(rowToArtwork);
   } catch (e) {
     warnFallback("listArtworks", e);
-    return sampleArtworks;
+    return sortSampleByLatest(sampleArtworks);
   }
 }
 

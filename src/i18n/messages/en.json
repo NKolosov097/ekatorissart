@@ -114,6 +114,12 @@
     "body": "The page you were looking for has moved, sold out, or never existed.",
     "back": "Back to the studio"
   },
+  "error": {
+    "title": "A quiet hiccup.",
+    "body": "Something went wrong on our side. The studio has been notified — please try again, or return to the homepage.",
+    "retry": "Try again",
+    "back": "Back to the studio"
+  },
   "footer": {
     "tagline": "Original oil paintings, painted from life and shipped worldwide from the artist's studio.",
     "explore": "Explore",

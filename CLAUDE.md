@@ -30,7 +30,7 @@ Next.js 14 App Router e-commerce site for selling original artworks. Three local
 
 `src/middleware.ts` branches on `/admin` vs everything else:
 - For `/admin/*` it checks the `admin_session=ok` cookie (set by `src/app/api/admin/login/route.ts`) and redirects to `/admin/login` if missing. **It does not invoke next-intl.**
-- For all other paths it delegates to `createIntlMiddleware(routing)`.
+- For all other paths it delegates to `createIntlMiddleware(routing)`, with a twist: the browser's `Accept-Language` wins on **every** visit (fallback `en`), not just the first. next-intl would persist even the auto-detected locale in `NEXT_LOCALE`, so the middleware ignores/strips that cookie unless the `locale_choice` cookie (set only by `LocaleSwitcher`, name in `src/i18n/config.ts`) marks an explicit user choice — only then is `NEXT_LOCALE` honored.
 - Both branches set an `x-pathname` response header so server layouts can read the current path (used in `src/app/(public)/layout.tsx` to derive the locale for `<html lang dir>` and in `(private)/admin/layout.tsx` to detect the login page and skip chrome).
 
 When adding a new public page, place it under `(public)/[locale]/…` and read params with `params: Promise<{ locale: Locale }>` (Next 14 async params). Admin pages must **not** include `[locale]`.
@@ -51,7 +51,7 @@ Don't bypass this layer in public pages — go through `listArtworks`, `listAvai
 
 `src/app/api/checkout/route.ts` **re-validates each line against the database server-side** (`getArtwork(slug)`, filter out `SOLD`) before creating the Stripe session — never trust client cart prices. Both checkout and the webhook check `isStripeConfigured()` and return a soft `200` (not `5xx`) when Stripe env vars are missing, so the dev UI can show a friendly message without breaking.
 
-`src/app/api/webhooks/stripe/route.ts` handles `checkout.session.completed` and `checkout.session.expired`. **The handler is currently a stub** — the TODOs to mark artworks `SOLD` and persist an `Order`/`OrderItem` row are not implemented yet. The order schema exists in `src/db/schema.ts` ready to use.
+`src/app/api/webhooks/stripe/route.ts` handles `checkout.session.completed`: it persists an `Order`/`OrderItem` row (idempotent via the unique index on `stripe_session_id` + `onConflictDoNothing`), marks artworks `SOLD`, and emails the owner via `sendOrderNotification()` from `src/lib/email.ts` (Resend REST API over plain `fetch`, no SDK; skipped with a warning when `RESEND_API_KEY` is unset, and it never throws — an email failure must not 500 the webhook). `checkout.session.expired` is a no-op until stock holds exist.
 
 ### i18n details
 

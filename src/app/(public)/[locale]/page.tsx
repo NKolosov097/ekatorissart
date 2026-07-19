@@ -1,37 +1,37 @@
-import Image from "next/image";
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
-import { listFeaturedArtworks } from "@/lib/artworks";
-import { ArtworkGrid } from "@/components/ArtworkGrid";
-import { site } from "@/lib/site";
-import type { Locale } from "@/i18n/config";
+import Image from "next/image"
+import type { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
+import { Link } from "@/i18n/routing"
+import { listFeaturedArtworks } from "@/lib/artworks"
+import { ArtworkGrid } from "@/components/ArtworkGrid"
+import { site } from "@/lib/site"
+import type { Locale } from "@/i18n/config"
 
 interface Props {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: Locale }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "site" });
-  const title = `${site.artistName} — ${t("tagline")}`;
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "site" })
+  const title = `${site.artistName} — ${t("tagline")}`
   return {
     title,
     description: t("description"),
     openGraph: { title, description: t("description") },
-  };
+  }
 }
 
 export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home" });
-  const featured = await listFeaturedArtworks();
-  const hero = featured[0];
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "home" })
+  const featured = await listFeaturedArtworks()
+  const hero = featured[0]
 
   return (
     <>
       {hero && (
-        <section className="container-wide pt-10 md:pt-16">
+        <section className="container-wide pt-6 md:pt-16">
           <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
             <div className="order-2 md:order-1">
               <div className="eyebrow mb-6">
@@ -55,7 +55,7 @@ export default async function HomePage({ params }: Props) {
 
             <Link
               href={`/shop/${hero.slug}`}
-              className="order-1 md:order-2 block group"
+              className="order-1 md:order-2 block group mx-auto w-full md:w-[calc((100svh_-_14rem)*4/5)] md:max-w-full"
               aria-label={hero.title}
             >
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -91,7 +91,9 @@ export default async function HomePage({ params }: Props) {
         <div className="flex items-end justify-between mb-12">
           <div>
             <div className="eyebrow">{t("selected_eyebrow")}</div>
-            <h2 className="font-serif text-3xl md:text-4xl mt-2">{t("selected_title")}</h2>
+            <h2 className="font-serif text-3xl md:text-4xl mt-2">
+              {t("selected_title")}
+            </h2>
           </div>
           <Link
             href="/shop"
@@ -125,5 +127,5 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
     </>
-  );
+  )
 }

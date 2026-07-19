@@ -1,18 +1,18 @@
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
-import { Link } from "@/i18n/routing";
-import type { Artwork } from "@/lib/types";
-import { formatPrice } from "@/lib/format";
+import Image from "next/image"
+import { useTranslations, useLocale } from "next-intl"
+import { Link } from "@/i18n/routing"
+import type { Artwork } from "@/lib/types"
+import { formatPrice } from "@/lib/format"
 
 interface Props {
-  artwork: Artwork;
-  priority?: boolean;
+  artwork: Artwork
+  priority?: boolean
 }
 
 export function ArtworkCard({ artwork, priority }: Props) {
-  const t = useTranslations("artwork");
-  const locale = useLocale();
-  const isSold = artwork.status === "SOLD";
+  const t = useTranslations("artwork")
+  const locale = useLocale()
+  const isSold = artwork.status === "SOLD"
 
   return (
     <Link
@@ -49,10 +49,12 @@ export function ArtworkCard({ artwork, priority }: Props) {
           {isSold ? (
             <span className="text-muted">{t("status.sold")}</span>
           ) : (
-            <span>{formatPrice(artwork.priceCents, artwork.currency, locale)}</span>
+            <span>
+              {formatPrice(artwork.priceCents, artwork.currency, locale)}
+            </span>
           )}
         </div>
       </div>
     </Link>
-  );
+  )
 }

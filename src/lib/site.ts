@@ -19,7 +19,7 @@ interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Ekatoris Art",
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Ekatorissart",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   artistName: "Ekatorissart",
   email: "ekatorissart@outlook.com",

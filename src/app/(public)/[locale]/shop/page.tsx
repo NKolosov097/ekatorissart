@@ -47,22 +47,13 @@ export default async function ShopPage({ params, searchParams }: Props) {
   const t = await getTranslations({ locale, namespace: "shop" });
   const all = await listArtworks();
 
-  const filtered = all.filter((a) => {
+  // listArtworks returns rows ordered by created_at desc (latest first) from the DB.
+  const visible = all.filter((a) => {
     if (kind === "originals" && a.kind !== "ORIGINAL") return false;
     if (kind === "prints" && a.kind !== "PRINT") return false;
     if (status === "available" && a.status === "SOLD") return false;
     if (status === "sold" && a.status !== "SOLD") return false;
     return true;
-  });
-
-  // Sort: available first, sold last; within each group, newest first.
-  const sorted = [...filtered].sort((a, b) => {
-    const aSold = a.status === "SOLD" ? 1 : 0;
-    const bSold = b.status === "SOLD" ? 1 : 0;
-    if (aSold !== bSold) return aSold - bSold;
-    const aDate = a.publishedAt ? Date.parse(a.publishedAt) : 0;
-    const bDate = b.publishedAt ? Date.parse(b.publishedAt) : 0;
-    return bDate - aDate;
   });
 
   return (
@@ -75,7 +66,7 @@ export default async function ShopPage({ params, searchParams }: Props) {
 
       <ShopFilters kind={kind} status={status} />
 
-      <ArtworkGrid artworks={sorted} />
+      <ArtworkGrid artworks={visible} columns={4} />
     </section>
   );
 }
